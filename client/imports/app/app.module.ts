@@ -1,14 +1,26 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
-import { DemoComponent } from "./demo/demo.component";
-import { DemoDataService } from "./demo/demo-data.service";
+import { AccountsModule } from 'angular2-meteor-accounts-ui'
+import {LoginComponent} from "./accountManagement/login/login.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AuthenticationService} from "./accountManagement/authenticationService";
+import {RegisterComponent} from "./accountManagement/register/register.component";
+import {ChatsystemModule} from "../chatsystem/chatsystem.module";
+import {TeamComponent} from "./teamManagement/teams/teams.component";
+import {CreateTeamComponent} from "./teamManagement/createTeam/createTeam.component";
+import {TeamDataService} from "./teamManagement/teamService";
+import {AppRoutingModule} from "./app-routing.module";
+
 
 @NgModule({
   // Components, Pipes, Directive
   declarations: [
     AppComponent,
-    DemoComponent
+    LoginComponent,
+    RegisterComponent,
+    TeamComponent,
+    CreateTeamComponent,
   ],
   // Entry Components
   entryComponents: [
@@ -16,11 +28,17 @@ import { DemoDataService } from "./demo/demo-data.service";
   ],
   // Providers
   providers: [
-    DemoDataService
+    AuthenticationService,
+      TeamDataService
   ],
   // Modules
   imports: [
-    BrowserModule
+    BrowserModule,
+    AccountsModule,
+    FormsModule,
+    ChatsystemModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]
