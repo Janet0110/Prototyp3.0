@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Router} from "@angular/router";
-import {MeteorComponent} from "angular2-meteor";
+
 declare var Materialize:any;
 
 @Injectable()
@@ -11,24 +11,22 @@ export class AuthenticationService {
     }
     logout(){
         Meteor.logout();
+        Session.set("user", "undefined");
     }
 
     login(user){
-        console.log(user);
-        var err = false;
+       var self = this;
         if(user){
              Meteor.loginWithPassword(user.username, user.password, function(err){
-                if(!this.err){
+                if(!err){
+                    Session.set("user", Meteor.user().username);
+                    self._router.navigate(['teams']);
                     Materialize.toast("Login successfull", 4000, "darkseagreen");
+
                 }else{
-                    this.err = true;
                     Materialize.toast(err, 4000, 'grey');
                 }
             });
-
-            if(!err){
-                this._router.navigate(['teams']);
-            }
         }else{
             return false;
         }

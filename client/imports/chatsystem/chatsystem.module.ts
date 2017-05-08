@@ -9,6 +9,9 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {ListingsComponent} from "./listings/listings.component";
 import {MessagesComponent} from "./messages/messages.component";
+import {DropdownComponent} from "./widgetsComponents/dropdown/dropdown.component";
+import {ChannelDataService} from "./listings/channelDataService";
+import {HeaderDataService} from "./header/headerServices";
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import {MessagesComponent} from "./messages/messages.component";
         HeaderComponent,
         FooterComponent,
         ListingsComponent,
-        MessagesComponent
+        MessagesComponent,
+        DropdownComponent
     ],
     // Entry Components
     entryComponents: [
@@ -26,7 +30,8 @@ import {MessagesComponent} from "./messages/messages.component";
     ],
     // Providers
     providers: [
-
+        ChannelDataService,
+        HeaderDataService
     ],
     // Modules
     imports: [

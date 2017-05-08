@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {
         console.log(Meteor.user());
-        if(!this.isLoggedIn && !!this.user){
+        if(this.isLoggedIn && this.user){
             this.isLoggedIn = true;
             if(this.router.url === '/'){
                 this.router.navigate( ['teams'] );

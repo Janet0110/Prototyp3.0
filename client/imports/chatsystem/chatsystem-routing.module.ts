@@ -4,7 +4,9 @@ import {NgModule} from "@angular/core";
 
 
 const teamRoutes: Routes = [
-    { path: 'teams/:team',  component: ChatsystemComponent },
+    { path: 'teams/:team',  redirectTo: '/teams/:teams/:channel', pathMatch: 'full'},
+    { path: 'teams/:team/:channel', component: ChatsystemComponent},
+
 ];
 
 @NgModule({

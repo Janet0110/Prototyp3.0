@@ -10,6 +10,19 @@
             <!--{{/if}}-->
         </div>
         <ul class="channel_list">
+
+            <li *ngFor="let item of data | async" class="channel">
+
+                <a class="channel_name" href="#">
+                    <div class="channel-state">
+                        <span class="private-channel " ></span>
+                    </div>
+                    <span class="prefix">#</span>
+                    <span class="channel-name">{{item.name}}</span>
+                    <!--<div class="{{private}}"></div>-->
+                </a>
+            </li>
+
             <!--{{#each channels}}-->
                 <!--{{> channel name = name private = private}}-->
             <!--{{/each}}-->

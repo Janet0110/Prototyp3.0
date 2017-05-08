@@ -1,7 +1,7 @@
 <nav class="header" >
     <div class="nav-wrapper" >
         <div class="team-menu teamMenu" >
-            Teamname
+            {{team}}
             <!--{{team}}-->
             <!--{{#if admin}}-->
                 <!--<div class="toolbox">-->
@@ -13,7 +13,7 @@
                     <span class="channelInfo">
                         <span class="channel-menu-name channelMenuName" >
                             <span class="channel-menu-prefix channelPrefix" ># </span>
-                            Channelname
+                            {{channel}}
                             <!--{{channel}}-->
                         </span>
                         <!--{{#if admin}}-->
@@ -22,7 +22,8 @@
                         <!--{{/if}}-->
                     </span>
             <ul id="nav-mobile" class="right hide-on-med-and-down ulList" >
-                Accounts
+                <dropdown [values]="dropdownValues" [name] = "name" (select)="action($event)">Test</dropdown>
+                <!--<dropdown [values]="dropdownValues" (select)="action($event.value)"></dropdown>-->
                 <!--{{> dropdown name = name list = accountList }}-->
             </ul>
         </div>
