@@ -1,8 +1,15 @@
-/* CSS declarations go here */
 
-input[type=text]:focus:not([readonly]){
-  border-bottom: 1px solid darkseagreen !important;
-  box-shadow: 0 1px 0 0 darkseagreen !important;
+.modal{
+  width: 38% !important;
+  top:100px;
+  h4{
+    font-size: 1.28rem !important;
+  }
+}
+
+input:not([type]):focus:not([readonly]) {
+  border-bottom: 1px solid darkseagreen;
+  box-shadow: 0 1px 0 0 darkseagreen;
 }
 
 input[type=password]:focus:not([readonly]){
@@ -21,14 +28,6 @@ input[type=password]:focus:not([readonly]){
   }
   &.success{
     background-color: darkseagreen !important;
-  }
-}
-
-.modal{
-  width: 38% !important;
-  top:100px;
-  h4{
-    font-size: 1.28rem !important;
   }
 }
 

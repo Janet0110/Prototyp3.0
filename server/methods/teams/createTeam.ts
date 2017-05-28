@@ -1,5 +1,6 @@
-import {Teams} from "../../both/collections/team.collection";
-import {Team} from "../../both/models/team.model";
+import {Team} from "../../../both/models/team.model";
+import {Teams} from "../../../both/collections/team.collection";
+
 Meteor.methods({
     'createTeam': function(team){
         if (!Meteor.userId()) {
@@ -24,6 +25,7 @@ Meteor.methods({
                 throw new Meteor.Error("Team already exists");
             }
         }
-
     }
 });
+
+

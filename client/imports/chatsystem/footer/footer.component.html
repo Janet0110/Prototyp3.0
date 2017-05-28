@@ -7,7 +7,7 @@
     </div>
 
     <div class="input">
-        <input type="text" class="inputText" name="messageInput">
-        <button class="form-control btn btn-login sendButton">Send</button>
+        <input type="text" #message class="inputText" (keyup.enter)="getTextMessage(message.value)" [(ngModel)]="messageInput" name="messageInput">
+        <button class="form-control btn btn-login sendButton" (click)="sendMessage()">Send</button>
     </div>
 </div>

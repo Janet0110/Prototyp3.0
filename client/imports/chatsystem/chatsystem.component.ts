@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import template from "./chatsystem.component.html";
 import style from "./chatsystem.component.less";
 import {Router, ActivatedRoute, Params} from "@angular/router";
-import {HeaderDataService} from "./header/headerServices";
+import {HeaderDataService} from "./header/header.services";
+import {User} from "../../../lib/user";
 
 @Component({
     selector: "chatsystem",
@@ -33,6 +34,7 @@ export class ChatsystemComponent implements OnInit {
                 this.channel = params["channel"];
                 this.dataService.setTeamnameToSession(this.team);
                 this.dataService.setChannelToSession(this.channel);
+                this.dataService.setUsernameToSession(User.get().username)
                 //Session.set("team", this.team);
             }
         );

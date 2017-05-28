@@ -1,8 +1,6 @@
 import {ChatsystemComponent} from "./chatsystem.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
-import {RouterModule, Route} from "@angular/router";
-import {TeamComponent} from "../app/teamManagement/teams/teams.component";
 import {NgModule} from "@angular/core";
 import {TeamRoutingModule} from "./chatsystem-routing.module";
 import {HeaderComponent} from "./header/header.component";
@@ -11,7 +9,14 @@ import {ListingsComponent} from "./listings/listings.component";
 import {MessagesComponent} from "./messages/messages.component";
 import {DropdownComponent} from "./widgetsComponents/dropdown/dropdown.component";
 import {ChannelDataService} from "./listings/channelDataService";
-import {HeaderDataService} from "./header/headerServices";
+import {HeaderDataService} from "./header/header.services";
+import {ChannelComponent} from "./listings/channel/channel.component";
+import {MessageService} from "./footer/footer.service";
+import {MessageComponent} from "./messages/message/message.component";
+import {CreateChannelDialog} from "./listings/createChannel/createChannelDialog.component";
+import {ModalModule} from "angular2-modal";
+import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
+
 
 
 @NgModule({
@@ -22,16 +27,20 @@ import {HeaderDataService} from "./header/headerServices";
         FooterComponent,
         ListingsComponent,
         MessagesComponent,
-        DropdownComponent
+        DropdownComponent,
+        ChannelComponent,
+        MessageComponent,
+        CreateChannelDialog
     ],
     // Entry Components
     entryComponents: [
-        ChatsystemComponent
+        ChatsystemComponent, CreateChannelDialog
     ],
     // Providers
     providers: [
         ChannelDataService,
-        HeaderDataService
+        HeaderDataService,
+        MessageService,
     ],
     // Modules
     imports: [
@@ -39,6 +48,8 @@ import {HeaderDataService} from "./header/headerServices";
         TeamRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+        ModalModule.forRoot(),
+        BootstrapModalModule
     ],
     // Main Component
     bootstrap: [ ChatsystemComponent ]

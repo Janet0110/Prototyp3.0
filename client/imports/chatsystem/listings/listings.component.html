@@ -4,7 +4,7 @@
                              <span class="listings_header_text">
                                  Channels
                              </span>
-            <div class="listings_tools"></div>
+            <div class="listings_tools" (click)="createChannel()"></div>
             <!--{{#if state}}-->
                 <!--{{> createChannelDialog state = state}}-->
             <!--{{/if}}-->
@@ -12,15 +12,7 @@
         <ul class="channel_list">
 
             <li *ngFor="let item of data | async" class="channel">
-
-                <a class="channel_name" href="#">
-                    <div class="channel-state">
-                        <span class="private-channel " ></span>
-                    </div>
-                    <span class="prefix">#</span>
-                    <span class="channel-name">{{item.name}}</span>
-                    <!--<div class="{{private}}"></div>-->
-                </a>
+                <channel channelName={{item.name}} channelPrivate = {{item.private}}></channel>
             </li>
 
             <!--{{#each channels}}-->

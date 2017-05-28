@@ -46,7 +46,6 @@ export class DropdownComponent {
     }
 
     display(){
-        console.log(this.showMenu);
         return this.showMenu;
     }
 

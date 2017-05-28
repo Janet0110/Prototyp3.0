@@ -1,0 +1,24 @@
+<div id="modal1" class="container-fluid custom-modal-container">
+    <div class="row custom-modal-header ">
+        <div class="modal-content">
+            <h4>Create a new Channel</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="jumbotron">
+                <input type="text" #channel class="inputValue" (keyup)="getChannelName(channel.value)" placeholder="Channelname" autofocus>
+                <div class= "channel-private">
+                    <p>
+                        <input type="checkbox" id="test5"  [(ngModel)]="privateFlag" name="channel" class="checkboxPrivate" />
+                        <label for="test5">Private</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a (click)="createChannel()" class=" modal-action modal-close waves-effect waves-green btn-flat submit">Create</a>
+        <a (click)="closeDialog()" class=" modal-action modal-close waves-effect waves-green btn-flat close">Cancel</a>
+    </div>
+</div>`

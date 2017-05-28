@@ -1,0 +1,7 @@
+<a class="channel_name" routerLink="/teams/{{team}}/{{channelName}}" (click)="joinChannel(channelName)">
+    <div class="channel-state">
+        <span class="private-channel {{channelPrivate}}"></span>
+    </div>
+    <span class="prefix">#</span>
+    <span class="channel-name">{{channelName}}</span>
+</a>
