@@ -11,11 +11,16 @@ import {DropdownComponent} from "./widgetsComponents/dropdown/dropdown.component
 import {ChannelDataService} from "./listings/channelDataService";
 import {HeaderDataService} from "./header/header.services";
 import {ChannelComponent} from "./listings/channel/channel.component";
-import {MessageService} from "./footer/footer.service";
+import {MessageService} from "./footer/message.service";
 import {MessageComponent} from "./messages/message/message.component";
 import {CreateChannelDialog} from "./listings/createChannel/createChannelDialog.component";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
+import {ChannelToolComponent} from "./listings/channelTool/channelTool.component";
+import {DeleteChannelDialog} from "./listings/channelTool/deleteChannelTool/deleteChannelDialog.component";
+import {TeamToolComponent} from "./listings/teamTool/teamTool.component";
+import {TeamSidebarComponent, UserPipe} from "./listings/teamSidebar/teamSidebar.component";
+import {UserDataService} from "./services/userService.service";
 
 
 
@@ -30,17 +35,23 @@ import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
         DropdownComponent,
         ChannelComponent,
         MessageComponent,
-        CreateChannelDialog
+        CreateChannelDialog,
+        ChannelToolComponent,
+        DeleteChannelDialog,
+        TeamToolComponent,
+        TeamSidebarComponent,
+        UserPipe
     ],
     // Entry Components
     entryComponents: [
-        ChatsystemComponent, CreateChannelDialog
+        ChatsystemComponent, CreateChannelDialog, DeleteChannelDialog
     ],
     // Providers
     providers: [
         ChannelDataService,
         HeaderDataService,
         MessageService,
+        UserDataService
     ],
     // Modules
     imports: [

@@ -9,7 +9,7 @@ import {RegisterComponent} from "./accountManagement/register/register.component
 import {ChatsystemModule} from "../chatsystem/chatsystem.module";
 import {TeamComponent} from "./teamManagement/teams/teams.component";
 import {CreateTeamComponent} from "./teamManagement/createTeam/createTeam.component";
-import {TeamDataService} from "./teamManagement/teamService";
+import {TeamDataService} from "./teamManagement/teamService.service";
 import {AppRoutingModule} from "./app-routing.module";
 
 

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import template from "./footer.component.html";
 import style from "./footer.component.less";
-import {MessageService} from "./footer.service";
+import {MessageService} from "./message.service";
 import {currentTeamId} from "../../../../lib/team";
 import {currentChannelId} from "../../../../lib/channel";
 import {MeteorReactive, MeteorComponent} from "angular2-meteor";
@@ -29,7 +29,7 @@ export class FooterComponent extends MeteorComponent {
 
     sendMessage(){
         this._messageService.sendMessage(this.message);
-        this.clearMessageField();
+        this.clearMessageField();1
     }
 
     clearMessageField(){

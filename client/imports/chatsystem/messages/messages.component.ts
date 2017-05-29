@@ -3,7 +3,7 @@ import template from "./messages.component.html";
 import style from "./messages.component.less";
 import {Message} from "../../../../both/models/message.model";
 import {Observable} from "rxjs";
-import {MessageService} from "../footer/footer.service";
+import {MessageService} from "../footer/message.service";
 
 @Component({
     selector: "messages",

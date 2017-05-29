@@ -1,0 +1,18 @@
+<div id="modal1" class="container-fluid custom-modal-container">
+    <div class="row custom-modal-header ">
+        <div class="modal-content">
+            <h4>Delete Channel {{name}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="jumbotron">
+                Do you really delete the Channel "{{channelName}}"
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a (click)="deleteChannel()" class=" modal-action modal-close waves-effect waves-green btn-flat submit">Delete</a>
+        <a (click)="closeDialog()" class=" modal-action modal-close waves-effect waves-green btn-flat close">Cancel</a>
+    </div>
+</div>`

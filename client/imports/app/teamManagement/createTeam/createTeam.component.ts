@@ -2,7 +2,7 @@ import template from "./createTeam.component.html";
 import style from "./createTeam.component.less";
 import {OnInit, Component} from "@angular/core";
 import {Router} from "@angular/router";
-import {TeamDataService} from "../teamService";
+import {TeamDataService} from "../teamService.service";
 
 @Component({
     selector: "createTeam",

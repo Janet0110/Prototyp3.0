@@ -2,7 +2,7 @@ import template from "./teams.component.html";
 import style from "./teams.component.less";
 import {OnInit, Component} from "@angular/core";
 import {Router} from "@angular/router";
-import {TeamDataService} from "../teamService";
+import {TeamDataService} from "../teamService.service";
 import {Observable} from "rxjs";
 import {Team} from "../../../../../both/models/team.model";
 

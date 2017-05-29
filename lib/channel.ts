@@ -13,9 +13,9 @@ export const currentChannelId = function(){
     return channel? channel._id : null;
 };
 
-export const getChannelId = function(channelName, teamId){
-    var channelObj = Channels.findOne({ name: channelName, 'team._id': teamId}, { fields: {
-        _id: 1
-    }});
-    return channelObj._id;
-};
+// export const getChannelId = function(channelName, teamId){
+//     var channelObj = Channels.findOne({ name: channelName, 'team._id': teamId}, { fields: {
+//         _id: 1
+//     }});
+//     return channelObj._id;
+// };

@@ -1,0 +1,32 @@
+<div class="teamSidebar">
+    <div class="teamSidebar_header">
+                             <span class="teamSidebar_header_text">
+                                 Users in team:
+                             </span>
+
+        <div class="team_tools"></div>
+        <!--{{#if newUser}}-->
+            <!--{{> newUserDialog newUser = newUser}}-->
+        <!--{{/if}}-->
+        <ul>
+
+            <li *ngFor="let users of usersInTeam | async">
+               <a *ngFor="let usersId of users.users | userId" >
+                   {{usersId.username}}
+               </a>
+
+
+            </li>
+            <!--{{#each users}}-->
+                <!--<li class="user_element">-->
+                    <!--<a class="user_name">-->
+                        <!--<span>{{name}}</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--{{/each}}-->
+        </ul>
+    </div>
+
+    <a class="permission" href='#'>Permissions</a><br>
+    <a class="userRoles" href='#'>User roles</a>
+</div>

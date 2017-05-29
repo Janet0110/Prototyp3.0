@@ -5,10 +5,10 @@ Meteor.publish("myTeams", function(userId) {
     return Teams.find({"users.user" : userId});
 });
 
-// Meteor.publish("getTeamByName", function(teamname){
-//     var result = Teams.find({"name": teamname});
-//     return result;
-// });
+Meteor.publish("getTeamByName", function(teamname){
+    var result = Teams.find({"name": teamname});
+    return result;
+});
 //
 // Meteor.publish("usersInTeam", function(teamname){
 //     var result = Teams.findOne({"name": teamname});

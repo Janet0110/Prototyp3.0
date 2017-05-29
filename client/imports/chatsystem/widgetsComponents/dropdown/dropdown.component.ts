@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "@angular/core";
+import {Component, Input, Output, EventEmitter, ElementRef} from "@angular/core";
 import template from "./dropdown.component.html";
 import style from "./dropdown.component.less";
 
@@ -15,6 +15,9 @@ export class DropdownValue {
 
 @Component({
     selector: "dropdown",
+    host: {
+        '(document:click)': 'onClick($event)',
+    },
     template: `
  <div id="dialog-buttons" class="dialog-buttons-dropdown-align dropdown-container" >
         <a class="popup-link-button" (click) = "popUp()">
@@ -30,7 +33,7 @@ export class DropdownValue {
 
 
 export class DropdownComponent {
-    showMenu : boolean = true;
+    hideMenu : boolean = true;
 
     @Input()
     values: DropdownValue[];
@@ -41,20 +44,29 @@ export class DropdownComponent {
     @Output()
     select: EventEmitter<any>;
 
-    constructor() {
+    constructor(private _eref: ElementRef) {
         this.select = new EventEmitter(null);
     }
 
+    onClick(event) {
+        if (!this._eref.nativeElement.contains(event.target)) {
+            this.hideMenu = true;
+            this.display();
+        }
+    }
+
     display(){
-        return this.showMenu;
+        return this.hideMenu;
     }
 
     selectItem(value){
         this.select.emit(value);
+        this.hideMenu = true;
+        this.display();
     }
 
     popUp(){
-        this.showMenu = !this.showMenu;
+        this.hideMenu = !this.hideMenu;
         this.display();
     }
 }
