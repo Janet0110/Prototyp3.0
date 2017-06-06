@@ -21,6 +21,7 @@ import {DeleteChannelDialog} from "./listings/channelTool/deleteChannelTool/dele
 import {TeamToolComponent} from "./listings/teamTool/teamTool.component";
 import {TeamSidebarComponent, UserPipe} from "./listings/teamSidebar/teamSidebar.component";
 import {UserDataService} from "./services/userService.service";
+import {DeleteMessageComponent} from "./messages/Tools/DeleteMessageTool/deleteMessage.component";
 
 
 
@@ -40,7 +41,8 @@ import {UserDataService} from "./services/userService.service";
         DeleteChannelDialog,
         TeamToolComponent,
         TeamSidebarComponent,
-        UserPipe
+        UserPipe,
+        DeleteMessageComponent
     ],
     // Entry Components
     entryComponents: [

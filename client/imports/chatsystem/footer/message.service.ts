@@ -8,11 +8,12 @@ import {currentChannelId} from "../../../../lib/channel";
 import {currentTeamId} from "../../../../lib/team";
 declare var Materialize:any;
 
-
+/*Dienst für die Footer-Komponenten und die Messages-Komponente*/
 @Injectable()
 export class MessageService extends MeteorComponent {
     private data: Observable<Message[]>;
 
+    /*Konstrukter mit der Übergabe des Angulars Router für die Verwendung. Meteors reactive Methode wird für das Holen der Nachrichten im aktuellen Channel und Team angewandt */
     constructor(private _router: Router){
         super();
         this.autorun(() => {
@@ -21,10 +22,12 @@ export class MessageService extends MeteorComponent {
         }, true);
     }
 
+    /*Nachrichten werden an die aufzurufende Methode übergeben*/
     public getData(): Observable<Message[]> {
         return this.data;
     }
 
+    /*Nachricht wird mit der Übergabe des Textes mit der Meteor-Methode in die Datenbank gespeichert*/
     public sendMessage(text: string){
         Meteor.call('sendMessage', currentChannelId(), text, currentTeamId(), function(err, result){
             if(err) {

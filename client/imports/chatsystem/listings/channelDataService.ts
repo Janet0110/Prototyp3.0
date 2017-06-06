@@ -6,12 +6,12 @@ import {Channel} from "../../../../both/models/channel.model";
 import {Channels} from "../../../../both/collections/channel.collection";
 declare var Materialize:any;
 
-
+/*Service für die Komponente Listings*/
 @Injectable()
 export class ChannelDataService extends MeteorComponent {
-    // private data: ObservableCursor<Team>;
     private data: Observable<Channel[]>;
 
+    /*Konstruktur mit Meteors autorun()-Methode für das Anzeigen der Channels in der Listing-Komponente*/
     constructor(private _router: Router){
         super();
         Tracker.autorun(() =>{
@@ -21,17 +21,13 @@ export class ChannelDataService extends MeteorComponent {
         })
     }
 
+    /*Übergibt die von Meteor-MongoDB erhaltenen Daten*/
     public getData(): Observable<Channel[]> {
         return this.data;
     }
 
-    public createTeam(channel){
-        // this.call('createChannel', team, function(err, result){
-            // if(!err){
-            //     this._router.navigate(['teams']);
-            //     Materialize.toast("Team created", 4000, "success");
-            // }else{
-            //     Materialize.toast(err.message, 4000, "error");
-            // }
-    };
+    /*setzt beim Wechseln eines Channels den aktuellen Channelnamen in die Session*/
+    public setChannelToSession(channel: string){
+        Session.set("channel", channel);
+    }
 }

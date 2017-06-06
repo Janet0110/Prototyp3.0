@@ -1,5 +1,4 @@
 import { MongoObservable } from "meteor-rxjs";
 
-
-// export const Teams = new MongoObservable.Collection<Team>("teams");
+/*Initialisieren einer teams-Collection*/
 export const Teams = new MongoObservable.Collection('teams');

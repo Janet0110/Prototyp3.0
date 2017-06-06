@@ -7,11 +7,12 @@ import {Teams} from "../../../../both/collections/team.collection";
 import {Observable} from "rxjs";
 declare var Materialize:any;
 
-
+/*Dienst für den TeamSide-Komponente*/
 @Injectable()
-export class UserDataService extends MeteorComponent implements OnInit {
+export class UserDataService extends MeteorComponent {
     private data: Observable<Team[]>;
 
+    /*Konstruktor: registriert sich an Meteor Publish-Methode getTeamByName für den Erhalt des Dokuments Team*/
     constructor(private _router: Router){
         super();
         this.autorun(() => {
@@ -20,17 +21,8 @@ export class UserDataService extends MeteorComponent implements OnInit {
         }, true);
     }
 
-    ngOnInit(): void {
-
-    }
-
+    /*Liefert die Benutzer, die sich im Team befinden, für die Darstellung*/
     public getUsersFromTeam(): Observable<Team[]>{
-        console.log(this.data);
         return this.data;
     }
-
-    // public getData(): Observable<Team[]> {
-    //     // return this.data;
-    // }
-
 }

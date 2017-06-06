@@ -1,5 +1,6 @@
 import {Channels} from "../both/collections/channel.collection";
 
+/*liefert den aktuellen Channel*/
 export const currentChannel = function () {
     var channel = null;
     if(Meteor.userId()){
@@ -7,15 +8,9 @@ export const currentChannel = function () {
     }
     return channel;
 };
-
+/*liefert die aktuelle ChannelId*/
 export const currentChannelId = function(){
     var channel = currentChannel();
     return channel? channel._id : null;
 };
 
-// export const getChannelId = function(channelName, teamId){
-//     var channelObj = Channels.findOne({ name: channelName, 'team._id': teamId}, { fields: {
-//         _id: 1
-//     }});
-//     return channelObj._id;
-// };

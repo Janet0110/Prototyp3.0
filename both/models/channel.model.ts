@@ -1,3 +1,4 @@
+/*Channel-Model*/
 export interface Channel {
     name: string;
     privateChannel: boolean;

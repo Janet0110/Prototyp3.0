@@ -1,4 +1,4 @@
-
+/*Funktionen für den Benutzer*/
 export const User = {
     get: function() {
         return Meteor.user() || {};

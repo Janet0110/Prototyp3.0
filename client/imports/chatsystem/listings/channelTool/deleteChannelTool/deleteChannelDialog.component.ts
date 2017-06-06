@@ -15,7 +15,6 @@ export class DeleteChannelData extends BSModalContext {
     }
 }
 
-
 @Component({
     selector: "modal-content",
     template,
@@ -26,6 +25,8 @@ export class DeleteChannelDialog extends MeteorComponent implements ModalCompone
     private channelName: string;
     private privateFlag: boolean;
 
+    /*Konstruktor mit der Übergabe von Angulars Router und dem DialogRef von Angulars2-modal Package zur Verwendung innerhalb der Komponente
+    * Dialog-Fenster wird initialisiert*/
     constructor(private _router: Router, public dialog: DialogRef<DeleteChannelData>) {
         super();
         this.context = dialog.context;
@@ -33,6 +34,7 @@ export class DeleteChannelDialog extends MeteorComponent implements ModalCompone
         dialog.setCloseGuard(this);
     }
 
+    /*Channel wird durch Aufruf von Meteors-Methode gelöscht*/
     deleteChannel(){
         var self = this;
         Meteor.call('deleteChannel', currentChannelId(), Meteor.userId(),function(err){
@@ -41,20 +43,21 @@ export class DeleteChannelDialog extends MeteorComponent implements ModalCompone
            }else{
                self.dialog.close();
                var team=Session.get("team");
-               console.log(self._router);
                self._router.navigate(['teams/'+team+'/general']);
            }
         });
     }
 
+    /*Dialog-Fenster wird geschlossen*/
     closeDialog(){
         this.dialog.close();
     }
 
+    /*Methode von Angular2-modal*/
     beforeDismiss(): boolean {
         return true;
     }
-
+    /*Methode von Angular2-modal*/
     beforeClose(): boolean {
         return false;
     }

@@ -16,8 +16,10 @@ export class TeamComponent implements OnInit {
     private user: Meteor.User;
     data: Observable<Team[]>;
 
+    /*Konstruktor mit der Übergabe von Angulars Router und dem TeamData-Servic zur Verwendung innerhalb der Komponente*/
     constructor( private router: Router, private _teamDataService: TeamDataService ) { }
 
+    /*Daten werden vom Service angefordert und beim Aufruf der Komponente mit "ngFor" als Liste dargestellt*/
     ngOnInit(): void {
         this.data = this._teamDataService.getData().zone();
     }

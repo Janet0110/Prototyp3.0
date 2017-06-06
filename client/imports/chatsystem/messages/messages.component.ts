@@ -13,13 +13,13 @@ import {MessageService} from "../footer/message.service";
 export class MessagesComponent implements OnInit{
     data: Observable<Message[]>;
 
+    /*Konstruktor mit der Übergabe des MessageService zur Verwendung in der Komponente*/
     constructor(private _messageService: MessageService) {
     }
 
+    /*Messages werden vom MessageService geholt und in der Komponente angezeigt*/
     ngOnInit(): void {
         this.data = this._messageService.getData().zone();
     }
-    getUsername(user: string) : void{
-        console.log(user);
-    }
+
 }

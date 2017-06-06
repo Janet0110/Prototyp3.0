@@ -15,13 +15,14 @@ import {InjectUser} from "angular2-meteor-accounts-ui";
 })
 
 export class HeaderComponent extends MeteorReactive{
-
     private dropdownValues: DropdownValue[] = [];
     private user:  Meteor.User;
     private team: String;
     private name : String;
     private channel : String;
 
+    /*Konstruktor mit der Übergabe von Angulars Router und dem HeaderData-Service zur Verwendung innerhalb der Komponente. Beim Initiieren der Komponente
+    werden Menüpunkte erstellt. Mit Meteors reaktiven Methode werden Daten für die Header-Information über die Session geholt*/
     constructor( private router: Router, private headerData: HeaderDataService) {
         super();
         const v = new DropdownValue("logout","Logout");
@@ -35,6 +36,7 @@ export class HeaderComponent extends MeteorReactive{
         }, true);
     }
 
+    /*Menüpunkt Logout. Benutzer wird ausgelogt und gelangt zur Login-Seite*/
     action(menuValue){
         if(menuValue=="logout"){
             Meteor.logout();

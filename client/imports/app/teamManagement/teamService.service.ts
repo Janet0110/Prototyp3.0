@@ -7,11 +7,12 @@ import {Teams} from "../../../../both/collections/team.collection";
 import {Observable} from "rxjs";
 declare var Materialize:any;
 
-
+/*Dienst für ceateTeam-Komponente und Teams-Komponente*/
 @Injectable()
 export class TeamDataService extends MeteorComponent {
-    // private data: ObservableCursor<Team>;
     private data: Observable<Team[]>;
+
+    /*Konstruktor mit der Übergabe von Angulars Router. Reactive Daten werden mit der Tracker.Autorun()-Methode beim Initialisieren der Komponente inititlaisiert*/
     constructor(private _router: Router){
         super();
         Tracker.autorun(() =>{
@@ -20,10 +21,12 @@ export class TeamDataService extends MeteorComponent {
         })
     }
 
+    /*Daten werden der aufrufenden Methode übergeben*/
     public getData(): Observable<Team[]> {
         return this.data;
     }
 
+    /*Team wird mit den übergebenen Daten erstellt und bei erfolgreichem Erstellen weiternavigiert zur Team-Komponente*/
     public createTeam(team){
         this.call('createTeam', team, function(err, result){
             if(!err){

@@ -1,5 +1,6 @@
 import {Teams} from "../both/collections/team.collection";
 
+/*liefert das aktuelle Team*/
 export const currentTeam = function(){
     var team = null;
     if(Meteor.userId()){
@@ -7,7 +8,7 @@ export const currentTeam = function(){
     }
     return team;
 };
-
+/*liefert die aktuelle TeamId*/
 export const currentTeamId = function(){
     var team = currentTeam();
     return team? team._id : null;

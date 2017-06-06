@@ -12,17 +12,18 @@ import {AuthenticationService} from "../authenticationService";
     template: template,
     styles: [ style ]
 })
+
 export class LoginComponent implements OnInit {
     private isLoggedIn: boolean = false;
     private user: Meteor.User;
     model: any = {};
 
-
-
+    /*Konstruktor mit der Übergabe von Router und dem Authentication-Servic zur Verwendung innerhalb der Komponente*/
     constructor( private router: Router, private _authenticationService: AuthenticationService){ }
 
+    /*Funktion wird beim Aufruf der Komponente aufgerufen. Es wird überprüft, ob der Benutzer bereits eingeloggt ist.
+    Ist der Benutzer eingeloogt, wird er auf die Team-Seite weitergeleitet*/
     ngOnInit(): void {
-        console.log(Meteor.user());
         if(this.isLoggedIn && this.user){
             this.isLoggedIn = true;
             if(this.router.url === '/'){
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
         }
     }
 
+    /*AuthenticationService wird für das Einloggen des Benutzers aufgerufen. Dabei wird das Model mit den eingegebenen Daten dan die Methode übergeben*/
     login(){
         this._authenticationService.login(this.model);
     }

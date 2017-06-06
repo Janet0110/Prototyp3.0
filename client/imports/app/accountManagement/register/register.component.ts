@@ -12,16 +12,15 @@ import {AuthenticationService} from "../authenticationService";
     template,
     styles: [ style ]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
     private isLoggedIn: boolean = false;
     private user: Meteor.User;
     model: any = {};
 
+    /*Konstruktor mit der Übergabe von Router und dem Authentication-Servic zur Verwendung innerhalb der Komponente*/
     constructor( private router: Router, private _authenticationService: AuthenticationService){ }
 
-    ngOnInit(): void {
-    }
-
+    /*AuthenticationService wird für das Registrieren des Benutzers aufgerufen. Dabei wird das Model mit den eingegebenen Daten dan die Methode übergeben*/
     register(){
         if(this._authenticationService.register(this.model)){
             this._authenticationService.login(this.model);

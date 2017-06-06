@@ -9,15 +9,14 @@ import {TeamDataService} from "../teamService.service";
     template,
     styles: [ style ]
 })
-export class CreateTeamComponent implements OnInit {
+
+export class CreateTeamComponent {
     team: any = {};
 
+    /*Konstruktor mit der Übergabe von Angulars Router und dem TeamData-Servic zur Verwendung innerhalb der Komponente*/
     constructor( private router: Router, private _teamService: TeamDataService ) { }
 
-    ngOnInit(): void {
-
-    }
-
+    /*ruft den Service für die Erstellung eines Teams mit den eingegeben Daten als Übergabe auf*/
     createTeam(){
         this._teamService.createTeam(this.team);
     }

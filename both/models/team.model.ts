@@ -1,3 +1,4 @@
+/*Team-Model*/
 export interface Team {
     name: string;
     owner: string;

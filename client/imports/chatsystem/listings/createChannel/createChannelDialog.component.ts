@@ -14,38 +14,32 @@ export class createChannelData extends BSModalContext {
         super();
     }
 }
-
-
 @Component({
     selector: "modal-content",
     template,
     styles: [ style ]
 })
+
 export class CreateChannelDialog extends MeteorComponent implements ModalComponent<createChannelData> {
     context: createChannelData;
     private channelName: string;
     private privateFlag: boolean;
 
+    /*Konstruktor mit der Übergabe von Angular2-Modal-Package zur Verwendung innerhalb der Komponente. Dialog-Fenster wird initialisiert*/
     constructor(public dialog: DialogRef<createChannelData>) {
         super();
-        console.log(this.context);
         this.context = dialog.context;
         dialog.setCloseGuard(this);
     }
 
-    ngOnInit(): void {
-
-    }
-
     getChannelName(channelName : string){
-        this.channelName= channelName
-        console.log(channelName);
-
+        this.channelName= channelName;
     }
 
+    /*erstellt über Meteors-Methode einen neuen Channel*/
     createChannel(){
-        var self = this;
-        var privateChannel=false;
+       var self = this;
+       var privateChannel=false;
        if(this.privateFlag==true){
            privateChannel=true;
        }
@@ -58,14 +52,17 @@ export class CreateChannelDialog extends MeteorComponent implements ModalCompone
         })
     }
 
+    /*schließt das Dialog-Fenster bei Aufruf der Methode*/
     closeDialog(){
         this.dialog.close();
     }
 
+    /*Angular2-Modal-Methode*/
     beforeDismiss(): boolean {
         return true;
     }
 
+    /*Angular2-Modal-Methode*/
     beforeClose(): boolean {
         return false;
     }

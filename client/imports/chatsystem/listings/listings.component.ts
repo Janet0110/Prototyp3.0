@@ -17,17 +17,20 @@ export class ListingsComponent implements OnInit {
     private user: Meteor.User;
     data: Observable<Channel[]>;
 
+    /*Übergabe des Channelnamen an eine Child-Komponente*/
     @Output() channelName: String;
 
-
+    /*Konstruktor mit der Übergabe vom ChannelDataService. Selbst-erstelltes Dialogfenster kann durch die Übergabe von angular2-modal-Package Klassen erstellt werden*/
     constructor(private _channelDataService: ChannelDataService, overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal ) {
         overlay.defaultViewContainer = vcRef;
     }
 
+    /*Wird Komponente erstellt, werden die Daten vom channelDataService für die Listingskomponente geholt*/
     ngOnInit(): void {
         this.data = this._channelDataService.getData().zone();
     }
 
+    /*öffnet ein Dialog-Fenster mit dem Package angular2-modal*/
     createChannel(){
         this.modal.open(CreateChannelDialog,  new createChannelData());
     }

@@ -6,13 +6,14 @@ export class DropdownValue {
     value: string;
     label: string;
 
+    /*Übergabe von Parametern, für die einzelnen Menüs im Dropdown-Menü*/
     constructor(value: string, label: string) {
         this.value = value;
         this.label = label;
 
     }
 }
-
+/*Komponente für das Anzeigen eines Dropdown-Menüs*/
 @Component({
     selector: "dropdown",
     host: {
@@ -44,10 +45,12 @@ export class DropdownComponent {
     @Output()
     select: EventEmitter<any>;
 
+    /*Initialisieren eines Events für die Weiterleitung des onClick-Events*/
     constructor(private _eref: ElementRef) {
         this.select = new EventEmitter(null);
     }
 
+    /*führt den weitergeleiteten onClick auf das Element aus*/
     onClick(event) {
         if (!this._eref.nativeElement.contains(event.target)) {
             this.hideMenu = true;
@@ -55,16 +58,19 @@ export class DropdownComponent {
         }
     }
 
+    /*öffnet und schließt das Dropdown-Menü*/
     display(){
         return this.hideMenu;
     }
 
+    /*selektiert den einzelnen Menüpunkt*/
     selectItem(value){
         this.select.emit(value);
         this.hideMenu = true;
         this.display();
     }
 
+    /*Aufruf für das öffnen und schließen des Dropdown-Menüs*/
     popUp(){
         this.hideMenu = !this.hideMenu;
         this.display();
